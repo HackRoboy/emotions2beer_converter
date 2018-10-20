@@ -151,6 +151,41 @@ def count_and_light():
         time.sleep(1)
 
 
+def pulsing_arrow(duration=8):
+    # mode 2
+    brightness = 50
+    tail = 30
+    led = 0
+    # print "duration: ",duration
+    start = time.time()
+    # while mode == 2:
+    #     if duration != 0 and time.time() - start > duration:
+    #         break
+    #     intensity = brightness
+    #     pixels = [0] * channels * leds_num
+    #     if led > 35 or led < 0:
+    #         led = 0
+    #     for l in range(led - tail, led):
+    #         intensity += 4
+    #         pixels[l * channels + 3] = intensity
+    #     write_pixels(pixels)
+    #     led += 1
+    #     time.sleep(0.02)
+    clockwise = True
+    while mode == 4:
+        if duration != 0 and time.time() - start > duration:
+            break
+        pixels = [0] * channels * leds_num
+        pixels[led * channels +3] = brightness
+        write_pixels(pixels)
+        if clockwise:
+            led += 1
+        else:
+            led -= 1
+        if led >= 8 or led <= 0:
+            clockwise = not clockwise
+        time.sleep(0.02)
+
 
 if __name__ == "__main__":
     # mode = 1
@@ -164,6 +199,6 @@ if __name__ == "__main__":
     # mode = 0
     # count_and_light()
 
-    mode = 3
-    dimm_face(8)
+    mode = 4
+    pulsing_arrow(8)
 
