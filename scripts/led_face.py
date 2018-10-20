@@ -172,7 +172,7 @@ def pulsing_arrow(point_led, duration=8, color=3):
     #     write_pixels(pixels)
     #     led += 1
     #     time.sleep(0.02)
-    clockwise_r = True
+    clockwise_r = False
     clockwise_l = True
 
     allowed_l = list()
@@ -235,14 +235,14 @@ def pulsing_arrow(point_led, duration=8, color=3):
         if led_l in forbidden_l:
             clockwise_l = not clockwise_l
 
+        if led_r in forbidden_r:
+            clockwise_r = not clockwise_r
+
         if led_r == 0 and not clockwise_r:
             led_r = 36
 
         if led_l == 0 and not clockwise_l:
             led_l = 36
-
-        if led_r in forbidden_r:
-            clockwise_r = not clockwise_r
 
         if clockwise_r:
             led_r += 1
