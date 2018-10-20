@@ -238,7 +238,7 @@ def pulsing_arrow(point_led, duration=8, color=3):
         if led_r == 0 and not clockwise_r:
             led_r = 36
 
-        if led_l == 0 and clockwise_l:
+        if led_l == 0 and not clockwise_l:
             led_l = 36
 
         if clockwise_r:
@@ -271,5 +271,5 @@ if __name__ == "__main__":
     # count_and_light()
 
     mode = 4
-    pulsing_arrow(0, 8)
+    pulsing_arrow(30, 8)
 
