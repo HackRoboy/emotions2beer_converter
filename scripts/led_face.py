@@ -184,7 +184,7 @@ def pulsing_arrow(duration=8):
             led -= 1
         if led >= 8 or led <= 0:
             clockwise = not clockwise
-        time.sleep(0.02)
+        time.sleep(0.05)
 
 
 if __name__ == "__main__":
