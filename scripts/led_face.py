@@ -191,7 +191,7 @@ def pulsing_arrow(duration=8):
 
         write_pixels(pixels)
 
-        if led_l in range(0, 29):
+        if led_l in range(0, 32):
             clockwise_l = not clockwise_l
 
         if led_l == 0:
@@ -207,7 +207,7 @@ def pulsing_arrow(duration=8):
         else:
             led_l -= 1
 
-        if led_r >= 8 or led_r <= 0:
+        if led_r >= 5 or led_r <= 0:
             clockwise_r = not clockwise_r
 
 
