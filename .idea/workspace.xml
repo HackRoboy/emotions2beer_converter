@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="9425eefb-94d6-4573-895d-bd30515b44c9" name="Default Changelist" comment="started led_face, as a first thing just trying things">
+    <list default="true" id="9425eefb-94d6-4573-895d-bd30515b44c9" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/scripts/led_face.py" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/led_face.py" afterDir="false" />
     </list>
@@ -38,15 +38,15 @@
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="dummy" value="6" />
-          <entry key="py" value="352" />
-          <entry key="txt" value="63" />
+          <entry key="py" value="688" />
+          <entry key="txt" value="183" />
           <entry key="xml" value="42" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="PLAIN_TEXT" value="69" />
-          <entry key="Python" value="352" />
+          <entry key="PLAIN_TEXT" value="189" />
+          <entry key="Python" value="688" />
           <entry key="XML" value="42" />
         </counts>
       </usages-collector>
@@ -71,10 +71,11 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/scripts/led_face.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <caret column="21" selection-start-column="21" selection-end-column="21" />
+            <state relative-caret-position="1194">
+              <caret line="93" column="29" lean-forward="true" selection-start-line="93" selection-start-column="29" selection-end-line="93" selection-end-column="29" />
               <folding>
                 <element signature="e#0#12#0" expanded="true" />
+                <marker date="1540032013501" expanded="true" signature="2039:2436" ph="..." />
               </folding>
             </state>
           </provider>
@@ -195,7 +196,28 @@
       <option name="project" value="LOCAL" />
       <updated>1540030409003</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="added the python line an the dedicated mode">
+      <created>1540030607394</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1540030607394</updated>
+    </task>
+    <task id="LOCAL-00003" summary="added a tail after the dimm, and made it executable">
+      <created>1540030857213</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1540030857213</updated>
+    </task>
+    <task id="LOCAL-00004" summary="added count and light">
+      <created>1540031865066</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1540031865066</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -226,7 +248,10 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="started led_face, as a first thing just trying things" />
-    <option name="LAST_COMMIT_MESSAGE" value="started led_face, as a first thing just trying things" />
+    <MESSAGE value="added the python line an the dedicated mode" />
+    <MESSAGE value="added a tail after the dimm, and made it executable" />
+    <MESSAGE value="added count and light" />
+    <option name="LAST_COMMIT_MESSAGE" value="added count and light" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/scripts/led_tail.py">
@@ -266,10 +291,11 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/scripts/led_face.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="21" selection-start-column="21" selection-end-column="21" />
+        <state relative-caret-position="1194">
+          <caret line="93" column="29" lean-forward="true" selection-start-line="93" selection-start-column="29" selection-end-line="93" selection-end-column="29" />
           <folding>
             <element signature="e#0#12#0" expanded="true" />
+            <marker date="1540032013501" expanded="true" signature="2039:2436" ph="..." />
           </folding>
         </state>
       </provider>
