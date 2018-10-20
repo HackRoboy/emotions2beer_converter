@@ -93,7 +93,7 @@ def count_and_light():
     # all others should be 0
     for i in range(leds_num):
         pixels = [0, 0, 0, 0] * leds_num
-        pixels[i] = [0, 0, 0, brightness]
+        pixels[i*4-1] = brightness
         write_pixels(pixels)
         print "pixel ", i
         time.sleep(1)
