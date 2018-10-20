@@ -85,3 +85,6 @@ def tail_clock(duration=0):
 if __name__ == "__main__":
     mode = 1
     dimming_puls(8)
+
+    mode = 2
+    tail_clock(8)
