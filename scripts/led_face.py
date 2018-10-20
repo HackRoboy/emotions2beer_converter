@@ -99,12 +99,64 @@ def count_and_light():
         time.sleep(1)
 
 
+def dimm_face(duration=0):
+    # mode 1
+    # dims in & out changing colors
+    brightness = 50
+    half_brightness = 0  # int(100 / 2)
+    # leds_num = 36
+    pixels = [0, 0, 0, half_brightness] * leds_num
+    count = 0
+    d = 1
+    pos = 0
+    color = [0, 0, 0, half_brightness]
+    start = time.time()
+    while mode == 1:
+        if duration != 0 and time.time() - start > duration:
+            break
+        # color = [0,0,0,half_brightness]
+        pixels = color * leds_num
+        write_pixels(pixels)
+        # self.show(pixels)
+        time.sleep(0.02)
+        if count != 1 and (count - 1) % brightness == 0:
+            d = -d
+        if (count - 1) % (2 * brightness) == 0:
+            #    print "CHANGED COLOR"
+            if pos == 3:
+                pos = 0
+            else:
+                pos += 1
+        half_brightness += d
+        count += abs(d)
+        color = [0] * 4
+        color[pos] = half_brightness
+        # pixels = pixels[-2:] + pixels[:-2]
+
+def light_face():
+    brightness = 50
+
+    pixels = [0, 0, 0, 0] * leds_num
+    face_array = [3, 4, 5, 13, 14, 15, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32]
+
+    for i in face_array:
+        pixels[i*4 -1 ] = brightness
+
+    write_pixels(pixels)
+
+
+
 if __name__ == "__main__":
-    mode = 1
-    dimming_puls(8)
+    # mode = 1
+    # dimming_puls(8)
+    #
+    # mode = 2
+    # tail_clock(8)
+    #
+    # # 3 4 5  13 14 15 32 - 21
+    #
+    # mode = 0
+    # count_and_light()
 
-    mode = 2
-    tail_clock(8)
+    light_face()
 
-    mode = 0
-    count_and_light()
