@@ -82,21 +82,16 @@ def tail_clock(duration=0):
         time.sleep(0.02)
 
 
-def count_and_light():
-    # mode 3
-    # dims in & out changing colors
+def light_face():
     brightness = 50
 
-    # for anz leds_num
-    # light up one led
-    # meaning set the brightness of one leds to brightness
-    # all others should be 0
-    for i in range(leds_num):
-        pixels = [0, 0, 0, 0] * leds_num
-        pixels[i*4-1] = brightness
-        write_pixels(pixels)
-        print "pixel ", i
-        time.sleep(1)
+    pixels = [0, 0, 0, 0] * leds_num
+    face_array = [3, 4, 5, 13, 14, 15, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32]
+
+    for i in face_array:
+        pixels[i*4 -1 ] = brightness
+
+    write_pixels(pixels)
 
 
 def dimm_face(duration=0):
@@ -111,11 +106,16 @@ def dimm_face(duration=0):
     pos = 0
     color = [0, 0, 0, half_brightness]
     start = time.time()
-    while mode == 1:
+    while mode == 3:
         if duration != 0 and time.time() - start > duration:
             break
         # color = [0,0,0,half_brightness]
-        pixels = color * leds_num
+        pixels = [0, 0, 0, 0]
+        for i in range(1, leds_num):
+            if i in [3, 4, 5, 13, 14, 15, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32]:
+                pixels += color
+            else:
+                pixels += [0, 0, 0, 0]
         write_pixels(pixels)
         # self.show(pixels)
         time.sleep(0.02)
@@ -133,16 +133,22 @@ def dimm_face(duration=0):
         color[pos] = half_brightness
         # pixels = pixels[-2:] + pixels[:-2]
 
-def light_face():
+
+def count_and_light():
+    # mode 3
+    # dims in & out changing colors
     brightness = 50
 
-    pixels = [0, 0, 0, 0] * leds_num
-    face_array = [3, 4, 5, 13, 14, 15, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32]
-
-    for i in face_array:
-        pixels[i*4 -1 ] = brightness
-
-    write_pixels(pixels)
+    # for anz leds_num
+    # light up one led
+    # meaning set the brightness of one leds to brightness
+    # all others should be 0
+    for i in range(leds_num):
+        pixels = [0, 0, 0, 0] * leds_num
+        pixels[i*4-1] = brightness
+        write_pixels(pixels)
+        print "pixel ", i
+        time.sleep(1)
 
 
 
@@ -158,5 +164,6 @@ if __name__ == "__main__":
     # mode = 0
     # count_and_light()
 
-    light_face()
+    mode = 3
+    dimm_face(8)
 
