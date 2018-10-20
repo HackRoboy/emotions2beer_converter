@@ -74,12 +74,28 @@ def tail_clock(duration=0):
         pixels = [0] * channels * leds_num
         if led > 35 or led < 0:
             led=0
-        for l in range(led-tail,led):
+        for l in range(led-tail, led):
             intensity += 4
             pixels[l*channels+3]=intensity
         write_pixels(pixels)
         led += 1
         time.sleep(0.02)
+
+
+def count_and_light():
+    # mode 3
+    # dims in & out changing colors
+    brightness = 50
+
+    # for anz leds_num
+    # light up one led
+    # meaning set the brightness of one leds to brightness
+    # all others should be 0
+    pixels = [0, 0, 0, 0] * leds_num
+    for i in range(leds_num):
+        pixels[i] = [0, 0, 0, brightness]
+        print "pixel ", i
+        time.sleep(1)
 
 
 if __name__ == "__main__":
@@ -88,3 +104,6 @@ if __name__ == "__main__":
 
     mode = 2
     tail_clock(8)
+
+    mode = 0
+    count_and_light()
