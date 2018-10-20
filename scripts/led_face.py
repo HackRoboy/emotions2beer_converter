@@ -176,7 +176,7 @@ def pulsing_arrow(point_led, duration=8, color=3):
     clockwise_l = True
 
     allowed_l = list()
-    for i in range(6):
+    for i in range(1, 6):
         allowed_l.append(point_led - i)
 
     # map them to our range
@@ -187,9 +187,10 @@ def pulsing_arrow(point_led, duration=8, color=3):
     for i in range(len(allowed_l)):
         if allowed_l[i] > 35:
             allowed_l[i] = i - 36
+    print "allowed_l: ", allowed_l
 
     allowed_r = list()
-    for i in range(6):
+    for i in range(1, 6):
         allowed_r.append(point_led + i)
 
     # map them to our range
@@ -200,6 +201,7 @@ def pulsing_arrow(point_led, duration=8, color=3):
     for i in range(len(allowed_r)):
         if allowed_r[i] > 35:
             allowed_r[i] = i - 36
+    print "allowed_r: ", allowed_r
 
     forbidden_l = list()
     for i in range(0, 36):
@@ -210,6 +212,7 @@ def pulsing_arrow(point_led, duration=8, color=3):
     for i in range(0, 36):
         if i not in allowed_r:
             forbidden_r.append(i)
+
     while mode == 4:
         if duration != 0 and time.time() - start > duration:
             break
