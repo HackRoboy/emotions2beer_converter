@@ -151,11 +151,10 @@ def count_and_light():
         time.sleep(1)
 
 
-def pulsing_arrow(duration=8, color=3):
+def pulsing_arrow(point_led, duration=8, color=3):
     # mode 2
     brightness = 50
     tail = 30
-    pointing_led = 0
     led_r = 0
     led_l = 0
     # print "duration: ",duration
@@ -177,14 +176,30 @@ def pulsing_arrow(duration=8, color=3):
     clockwise_l = True
 
     allowed_l = list()
-    for i in range(36, 31, -1):
-        allowed_l.append(i)
+    for i in range(6):
+        allowed_l.append(point_led - i)
+
+    # map them to our range
+    for i in range(len(allowed_l)):
+        if allowed_l[i] < 0:
+            allowed_l[i] = 36 + i
+
+    for i in range(len(allowed_l)):
+        if allowed_l[i] > 35:
+            allowed_l[i] = i - 36
 
     allowed_r = list()
-    for i in range(1, 5):
-        allowed_r.append(i)
+    for i in range(6):
+        allowed_r.append(point_led + i)
 
+    # map them to our range
+    for i in range(len(allowed_r)):
+        if allowed_r[i] < 0:
+            allowed_r[i] = 36 + i
 
+    for i in range(len(allowed_r)):
+        if allowed_r[i] > 35:
+            allowed_r[i] = i - 36
 
     forbidden_l = list()
     for i in range(0, 36):
@@ -248,5 +263,5 @@ if __name__ == "__main__":
     # count_and_light()
 
     mode = 4
-    pulsing_arrow(8)
+    pulsing_arrow(0, 8)
 
