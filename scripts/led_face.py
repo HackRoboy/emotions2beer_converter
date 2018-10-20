@@ -176,14 +176,24 @@ def pulsing_arrow(duration=8, color=3):
     clockwise_r = True
     clockwise_l = True
 
+    allowed_l = list()
+    for i in range(36, 31, -1):
+        allowed_l.append(i)
+
+    allowed_r = list()
+    for i in range(1, 5):
+        allowed_r.append(i)
+
+
+
     forbidden_l = list()
     for i in range(0, 36):
-        if i not in range(36, 31, -1):
+        if i not in allowed_l:
             forbidden_l.append(i)
 
     forbidden_r = list()
     for i in range(0, 36):
-        if i not in range(1, 6):
+        if i not in allowed_r:
             forbidden_r.append(i)
     while mode == 4:
         if duration != 0 and time.time() - start > duration:
