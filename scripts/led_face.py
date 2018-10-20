@@ -155,8 +155,8 @@ def pulsing_arrow(point_led, duration=8, color=3):
     # mode 2
     brightness = 50
     tail = 30
-    led_r = 0
-    led_l = 0
+    led_r = point_led
+    led_l = point_led
     # print "duration: ",duration
     start = time.time()
     # while mode == 2:
