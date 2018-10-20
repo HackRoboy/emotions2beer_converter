@@ -173,7 +173,7 @@ def pulsing_arrow(duration=8):
     #     led += 1
     #     time.sleep(0.02)
     clockwise_r = True
-    clockwise_l = False
+    clockwise_l = True
     while mode == 4:
         if duration != 0 and time.time() - start > duration:
             break
