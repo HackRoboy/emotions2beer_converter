@@ -155,7 +155,8 @@ def pulsing_arrow(duration=8):
     # mode 2
     brightness = 50
     tail = 30
-    led = 0
+    led_r = 0
+    led_l = 0
     # print "duration: ",duration
     start = time.time()
     # while mode == 2:
@@ -171,19 +172,41 @@ def pulsing_arrow(duration=8):
     #     write_pixels(pixels)
     #     led += 1
     #     time.sleep(0.02)
-    clockwise = True
+    clockwise_r = True
+    clockwise_l = False
+    led_transformed_l = False
     while mode == 4:
         if duration != 0 and time.time() - start > duration:
             break
         pixels = [0] * channels * leds_num
-        pixels[led * channels +3] = brightness
+        pixels[led_r * channels + 3] = brightness
+        pixels[led_l * channels + 3] = brightness
+
         write_pixels(pixels)
-        if clockwise:
-            led += 1
+
+        if led_l == 0:
+            led_l = 36
+            led_transformed_l = True
+        if led_l == 36 and not led_transformed_l:
+            led_l = 0
+
+        # now the transform is safe
+        led_transformed_l = False
+        if clockwise_r:
+            led_r += 1
         else:
-            led -= 1
-        if led >= 8 or led <= 0:
-            clockwise = not clockwise
+            led_r -= 1
+
+        if clockwise_l:
+            led_l += 1
+        else:
+            led_l -= 1
+
+        if led_r >= 8 or led_r <= 0:
+            clockwise_r = not clockwise_r
+
+        if led_l in range(0, 28):
+            clockwise_l = not clockwise_l
         time.sleep(0.05)
 
 
