@@ -151,10 +151,11 @@ def count_and_light():
         time.sleep(1)
 
 
-def pulsing_arrow(duration=8):
+def pulsing_arrow(duration=8, color=3):
     # mode 2
     brightness = 50
     tail = 30
+    pointing_led = 0
     led_r = 0
     led_l = 0
     # print "duration: ",duration
@@ -174,6 +175,16 @@ def pulsing_arrow(duration=8):
     #     time.sleep(0.02)
     clockwise_r = True
     clockwise_l = True
+
+    forbidden_l = list()
+    for i in range(0, 36):
+        if i not in range(36, 31, -1):
+            forbidden_l.append(i)
+
+    forbidden_r = list()
+    for i in range(0, 36):
+        if i not in range(1, 6):
+            forbidden_r.append(i)
     while mode == 4:
         if duration != 0 and time.time() - start > duration:
             break
@@ -186,12 +197,12 @@ def pulsing_arrow(duration=8):
         print "clockwise_r, ", clockwise_r
 
         pixels = [0] * channels * leds_num
-        pixels[led_r * channels + 3] = brightness
-        pixels[led_l * channels + 3] = brightness
+        pixels[led_r * channels + color] = brightness
+        pixels[led_l * channels + color] = brightness
 
         write_pixels(pixels)
 
-        if led_l in range(0, 32):
+        if led_l in forbidden_l:
             clockwise_l = not clockwise_l
 
         if led_l == 0:
@@ -207,9 +218,9 @@ def pulsing_arrow(duration=8):
         else:
             led_l -= 1
 
-        if led_r >= 5 or led_r <= 0:
+        #if led_r >= 5 or led_r <= 0:
+        if led_r in forbidden_r:
             clockwise_r = not clockwise_r
-
 
         time.sleep(0.05)
 
