@@ -219,6 +219,8 @@ def pulsing_arrow(point_led, duration=8, color=3):
 
         if led_l == 36:
             led_l = 0
+        if led_r == 36:
+            led_r = 0
         print "led_l: ", led_l
         print "led_r: ", led_r
         print "clockwise_l, ", clockwise_l
@@ -232,6 +234,9 @@ def pulsing_arrow(point_led, duration=8, color=3):
 
         if led_l in forbidden_l:
             clockwise_l = not clockwise_l
+
+        if led_r == 0 and not clockwise_r:
+            led_r = 36
 
         if led_l == 0:
             led_l = 36
