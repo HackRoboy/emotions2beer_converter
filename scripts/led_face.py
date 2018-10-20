@@ -178,6 +178,11 @@ def pulsing_arrow(duration=8):
     while mode == 4:
         if duration != 0 and time.time() - start > duration:
             break
+        print "led_l: ", led_l
+        print "led_r: ", led_r
+        print "led_transformed_l", led_transformed_l
+        print "clockwise_l, ", clockwise_l
+        print "clockwise_r, ", clockwise_r
         pixels = [0] * channels * leds_num
         pixels[led_r * channels + 3] = brightness
         pixels[led_l * channels + 3] = brightness
